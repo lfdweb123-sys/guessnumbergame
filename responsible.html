@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Jeu Responsable — Guess Number</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--yellow:#F5C518;--black:#0A0A0A;--dark:#111111;--grey:#888;--white:#fff;--red:#E53935;--green:#2ECC71;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white);line-height:1.7;}
+    a{color:var(--yellow);text-decoration:none;}a:hover{text-decoration:underline;}
+    nav{position:sticky;top:0;background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(245,197,24,0.1);padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;z-index:100;}
+    .nl{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .ni{width:34px;height:34px;background:var(--yellow);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+    .nt{font-family:'Bebas Neue';font-size:18px;letter-spacing:2px;color:var(--yellow);}
+    .nb{font-size:14px;color:var(--grey);}
+    .nb:hover{color:var(--yellow);text-decoration:none;}
+    .hero{background:linear-gradient(135deg,rgba(229,57,53,0.08),var(--black));padding:60px 5vw 50px;border-bottom:1px solid rgba(229,57,53,0.1);}
+    .hi{max-width:760px;margin:0 auto;}
+    .tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+    .tag::before{content:'';display:block;width:16px;height:2px;background:var(--red);border-radius:2px;}
+    .ptitle{font-family:'Bebas Neue';font-size:clamp(28px,5vw,48px);letter-spacing:2px;margin-bottom:12px;}
+    main{max-width:760px;margin:0 auto;padding:60px 5vw 100px;}
+    h2{font-family:'Bebas Neue';font-size:24px;letter-spacing:1px;margin:48px 0 14px;color:var(--white);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;}
+    h2::after{content:'';position:absolute;bottom:-1px;left:0;width:40px;height:2px;background:var(--red);border-radius:2px;}
+    p{font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:14px;}
+    ul{padding-left:24px;margin-bottom:14px;}
+    li{font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:6px;line-height:1.65;}
+    .red-box{background:rgba(229,57,53,0.08);border:1.5px solid rgba(229,57,53,0.25);border-radius:14px;padding:24px;margin:20px 0;}
+    .red-box h3{font-size:18px;font-weight:700;color:var(--red);margin-bottom:10px;}
+    .red-box p{margin:0;font-size:14px;color:rgba(255,255,255,0.7);}
+    .green-box{background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px 24px;margin:20px 0;}
+    .green-box p{margin:0;font-size:14px;color:rgba(46,204,113,0.9);}
+    .quiz{background:var(--dark);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:28px;margin:24px 0;}
+    .quiz h3{font-size:18px;font-weight:700;margin-bottom:16px;color:var(--white);}
+    .quiz-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.03);}
+    .quiz-check{width:20px;height:20px;border-radius:4px;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;margin-top:2px;}
+    .quiz-text{font-size:14px;color:rgba(255,255,255,0.7);}
+    footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.05);text-align:center;padding:32px 5vw;font-size:13px;color:rgba(255,255,255,0.25);}
+    footer a{color:rgba(255,255,255,0.4);}footer a:hover{color:var(--yellow);text-decoration:none;}
+    .fl{display:flex;gap:24px;justify-content:center;margin-top:10px;}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nl"><div class="ni">🎲</div><span class="nt">GUESS NUMBER</span></a>
+  <a href="index.html" class="nb">← Retour à l'accueil</a>
+</nav>
+<div class="hero">
+  <div class="hi">
+    <div class="tag">Important</div>
+    <h1 class="ptitle">JEU RESPONSABLE</h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.6);max-width:600px;margin-top:8px">Guess Number prend le jeu responsable très au sérieux. Cette page vous fournit les informations et outils nécessaires pour jouer de manière saine.</p>
+  </div>
+</div>
+<main>
+
+  <div class="red-box">
+    <h3>⛔ Rappel — 18 ans minimum obligatoire</h3>
+    <p>Guess Number est strictement réservé aux personnes majeures (18 ans et plus). Si vous avez connaissance d'un mineur utilisant cette application, contactez-nous immédiatement à <a href="mailto:contact@guessnumber.app">contact@guessnumber.app</a>.</p>
+  </div>
+
+  <h2>Le jeu, c'est pour s'amuser</h2>
+  <p>Guess Number est avant tout un jeu de <strong>divertissement entre amis</strong>. Il doit rester une source de plaisir, jamais une source de stress ou de problèmes financiers.</p>
+  <p>Voici les principes d'un jeu sain :</p>
+  <ul>
+    <li>Jouez uniquement avec de l'argent que vous pouvez vous permettre de perdre</li>
+    <li>Le jeu ne doit jamais être une façon de résoudre des problèmes financiers</li>
+    <li>Fixez-vous des limites de temps et d'argent avant de jouer</li>
+    <li>Ne jouez jamais sous l'influence d'alcool ou de drogues</li>
+    <li>Faites des pauses régulières</li>
+    <li>Le jeu ne garantit aucun revenu régulier</li>
+  </ul>
+
+  <h2>Signes d'une pratique problématique</h2>
+  <div class="quiz">
+    <h3>🔍 Questionnaire d'auto-évaluation</h3>
+    <p style="font-size:13px;color:var(--grey);margin-bottom:16px">Si vous répondez "oui" à plusieurs de ces questions, nous vous encourageons à chercher de l'aide.</p>
+    <div class="quiz-item"><div class="quiz-check"></div><div class="quiz-text">Je joue avec de l'argent destiné à d'autres dépenses (nourriture, loyer, etc.)</div></div>
+    <div class="quiz-item"><div class="quiz-check"></div><div class="quiz-text">Je joue pour récupérer de l'argent perdu lors de précédentes parties</div></div>
+    <div class="quiz-item"><div class="quiz-check"></div><div class="quiz-text">Je pense souvent au jeu même quand je ne joue pas</div></div>
+    <div class="quiz-item"><div class="quiz-check"></div><div class="quiz-text">J'ai menti à des proches sur mes habitudes de jeu ou mes pertes</div></div>
+    <div class="quiz-item"><div class="quiz-check"></div><div class="quiz-text">Je ressens le besoin d'augmenter mes mises pour ressentir les mêmes sensations</div></div>
+    <div class="quiz-item"><div class="quiz-check"></div><div class="quiz-text">Le jeu affecte ma vie professionnelle, familiale ou sociale</div></div>
+    <div class="quiz-item"><div class="quiz-check"></div><div class="quiz-text">J'ai des difficultés à m'arrêter de jouer, même quand je le veux</div></div>
+  </div>
+
+  <h2>Outils de jeu responsable</h2>
+  <div class="green-box">
+    <p>✅ Ces outils sont disponibles dans votre profil, section "Jeu Responsable".</p>
+  </div>
+  <ul>
+    <li><strong>Limite de dépôt journalier/hebdomadaire/mensuel</strong> — Fixez un plafond que vous ne pouvez pas dépasser</li>
+    <li><strong>Limite de perte</strong> — L'application vous arrête automatiquement si vous atteignez votre limite</li>
+    <li><strong>Pause forcée</strong> — Suspendez votre compte pour 24h, 7 jours ou 30 jours</li>
+    <li><strong>Auto-exclusion définitive</strong> — Fermez votre compte de manière permanente et irréversible</li>
+    <li><strong>Rappels de temps de jeu</strong> — Recevez des alertes après X minutes de jeu</li>
+  </ul>
+
+  <h2>Auto-exclusion</h2>
+  <p>Si vous souhaitez être exclu définitivement de Guess Number, contactez-nous à <a href="mailto:contact@guessnumber.app">contact@guessnumber.app</a> avec l'objet "AUTO-EXCLUSION DEFINITIVE". Votre compte sera fermé sous 48h et votre solde disponible vous sera remboursé. Cette décision est irréversible.</p>
+
+  <h2>Chercher de l'aide</h2>
+  <p>Si vous ou un proche avez un problème avec le jeu, n'attendez pas pour chercher de l'aide :</p>
+  <ul>
+    <li><strong>Parlez à un médecin ou un psychologue</strong> — Le jeu pathologique est une dépendance reconnue qui se traite</li>
+    <li><strong>Contactez un centre de santé mentale</strong> près de chez vous</li>
+    <li><strong>Parlez à un proche de confiance</strong> — La honte ne doit pas vous empêcher de demander de l'aide</li>
+  </ul>
+  <div class="red-box">
+    <h3>📞 Besoin d'aide maintenant ?</h3>
+    <p>Contactez immédiatement notre équipe de support à <a href="mailto:contact@guessnumber.app" style="color:var(--yellow)">contact@guessnumber.app</a>. Nous vous aiderons à activer les outils de jeu responsable ou à fermer votre compte.</p>
+  </div>
+
+  <h2>Protection des mineurs</h2>
+  <p>Si vous êtes parent ou tuteur, nous vous recommandons :</p>
+  <ul>
+    <li>D'utiliser les contrôles parentaux de votre appareil Android</li>
+    <li>De ne pas laisser vos enfants accéder à votre téléphone sans surveillance</li>
+    <li>De protéger votre compte avec un mot de passe fort</li>
+    <li>De parler à vos enfants des risques du jeu d'argent</li>
+  </ul>
+  <p>Si vous soupçonnez qu'un mineur a créé un compte, signalez-le immédiatement : <a href="mailto:contact@guessnumber.app">contact@guessnumber.app</a></p>
+
+</main>
+<footer>
+  <p>© 2025 Guess Number · Jeu réservé aux +18 ans · Jouez de manière responsable</p>
+  <div class="fl">
+    <a href="index.html">Accueil</a>
+    <a href="privacy.html">Confidentialité</a>
+    <a href="terms.html">Conditions</a>
+  </div>
+</footer>
+</body>
+</html>
